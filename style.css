@@ -42,6 +42,10 @@ div.contentBlock > h3 {
 @media (max-width: 1200px) {
 	#menu {
 		display: none;
+
+	}
+	form { 
+		display:none;
 	}
 
 }
