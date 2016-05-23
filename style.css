@@ -26,7 +26,22 @@ div.contentBlock > h3 {
 	font-size:13px;	
 }
 
-#menu > li.active {
+#menu > li {
+	margin:5px 0;
+}
 
-	font-weight:bold;
+#menu > li.active {
+	background-color: #26a4d3;
+	color:#ffffff;
+}
+
+.body-text, .mobile {
+	overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+	#menu {
+		display: none;
+	}
+
 }

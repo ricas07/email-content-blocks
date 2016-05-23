@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	console.log("This shit is going to rock!");
 	
@@ -11,8 +12,6 @@ $(document).ready(function(){
 	var contentBlocks = $('.contentBlock');
 	var menu = $('#menu');
 	
-	var blockTitle = $(contentBlocks[0]).find('h2').text();
-
 	for (var i = 0 ; i < contentBlocks.length ; i++) {
 		console.log(contentBlocks[i]);	
 
@@ -22,11 +21,7 @@ $(document).ready(function(){
 
 		$(contentBlocks[i]).attr('id', blockClass);
 
-		
-
 		menu.append('<li>' + blockTitle + '</li>');
-
-
 
 	}
 
@@ -37,13 +32,26 @@ $(document).ready(function(){
 		var itemId = $(this).text().substring(0,3)
 		console.log(itemId);
 
-		var contentBlocks = $('.contentBlock');
-
 		$('#'+itemId).toggle();
 		$(this).toggleClass('active');
 
 	});
-	
+		
+	//show block for testing image upload
+	$('#P04').show();	
+
+	//grab path of selected image
+
+	$('#image-upload').change( function(event) {
+    var tmppath = URL.createObjectURL(event.target.files[0]);
+    
+    console.log(tmppath);
+	//    $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+	//    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
+
+	$(this).parent().next('table').attr('background',tmppath);
+	$(this).parent().next('table').attr('style','background-image: url(' + tmppath + ');')
+	})
 
 
 });
