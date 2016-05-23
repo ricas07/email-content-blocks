@@ -13,7 +13,7 @@ $(document).ready(function(){
 	var menu = $('#menu');
 	
 	for (var i = 0 ; i < contentBlocks.length ; i++) {
-		console.log(contentBlocks[i]);	
+		//console.log(contentBlocks[i]);	
 
 		var blockTitle = $(contentBlocks[i]).find('h3').first().text();
 
@@ -39,6 +39,7 @@ $(document).ready(function(){
 		
 	//show block for testing image upload
 	$('#P04').show();	
+	$('#M02').show();
 
 	//grab path of selected image
 
@@ -50,9 +51,19 @@ $(document).ready(function(){
 	//    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
 
 	$(this).parent().next('table').attr('background',tmppath);
-	$(this).parent().next('table').attr('style','background-image: url(' + tmppath + ');')
+	$(this).parent().next('table').attr('style','background-image: url(' + tmppath + ');');
 	})
 
+
+	$('#m02-image-upload').change( function(event) {
+    var tmppath = URL.createObjectURL(event.target.files[0]);
+    
+    console.log(tmppath);
+	//    $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+	//    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
+
+	$(this).parent().next('table').find('img').attr('src', tmppath);
+	})
 
 });
 
