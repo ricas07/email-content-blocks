@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 		$(contentBlocks[i]).attr('id', blockClass);
 
-		menu.append('<li>' + blockTitle + '</li>');
+		menu.append('<li>' + blockTitle.toLowerCase() + '</li>');
 
 	}
 
@@ -29,7 +29,7 @@ $(document).ready(function(){
 
 	$('#menu li').click(function() {
 		
-		var itemId = $(this).text().substring(0,3)
+		var itemId = $(this).text().toUpperCase().substring(0,3);
 		console.log(itemId);
 
 		$('#'+itemId).toggle();
