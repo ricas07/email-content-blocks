@@ -12,7 +12,8 @@ $(document).ready(function(){
 	var contentBlocks = $('.contentBlock');
 	var menu = $('#menu');
 	
-	for (var i = 0 ; i < contentBlocks.length ; i++) {
+	/* Old build Menu */
+	/*for (var i = 0 ; i < contentBlocks.length ; i++) {
 		//console.log(contentBlocks[i]);	
 
 		var blockTitle = $(contentBlocks[i]).find('h3').first().text();
@@ -22,27 +23,43 @@ $(document).ready(function(){
 		$(contentBlocks[i]).attr('id', blockClass);
 
 		menu.append('<li>' + blockTitle.toLowerCase() + '</li>');
+	} */
+	/* End Old build Menu */
 
-	}
+
+	//var escaptedCode = $('.block-code').html();
+
+	//$('.block-code').html(escaptedCode);	
+
+	//console.log(escaptedCode.text);
 
 	//toggle content blocks
 
 	$('#menu li').click(function() {
 		
 		var itemId = $(this).text().toUpperCase().substring(0,3);
-		console.log(itemId);
+		var itemName = $(this).text();
+		// console.log(itemId);
+		$(this).toggleClass('active');
+
 
 		$('#'+itemId).toggle();
-		$(this).toggleClass('active');
+			
+		//$('#'+itemId).before('<div>').remove();
+		$('#'+itemId).before('<div class="visibleBlock"><h3>' + itemName + '</h3></div>');
+		
+		
+
+		//$('.visibleBlock h3').text(itemName);
 
 	});
 		
 	//show block for testing image upload
-	var defaultBlocks = [3,8,17,18,19,20];
+	/*var defaultBlocks = [0,3,8,17,18,19,20];
 	var menuItems = $('#menu li');
 	for (i = 0; i < defaultBlocks.length ; i++) {
 		menuItems[defaultBlocks[i]].click();
-	}
+	}*/
 	
 	//grab path of selected image
 
@@ -50,9 +67,6 @@ $(document).ready(function(){
 	    var tmppath = URL.createObjectURL(event.target.files[0]);
 	    
 	    console.log(tmppath);
-		//    $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
-		//    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
-
 		$(this).parent().next('table').attr('background',tmppath);
 		$(this).parent().next('table').attr('style','background-image: url(' + tmppath + ');');
 	})
@@ -61,10 +75,7 @@ $(document).ready(function(){
 	$('#m02-image-upload').change( function(event) {
 	    var tmppath = URL.createObjectURL(event.target.files[0]);
 	    
-	    console.log(tmppath);
-		//    $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
-		//    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
-
+	    // console.log(tmppath);
 		$(this).parent().next('table').find('img').attr('style','background-image: url(' + tmppath + ');');
 		$(this).parent().next('table').find('img').attr('src','');
 	

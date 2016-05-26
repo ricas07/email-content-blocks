@@ -1,93 +1,46 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="robots" content="noindex, nofollow">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
     <title>Master Email Template</title>
 
 <!-- For catalog -->
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js"></script>
+
     <script src="scripts.js"></script>
+    <script src="app.js"></script>
 <!-- End for catalog -->
 
-    <style type="text/css">
-      @import url(https://fonts.googleapis.com/css?family=Montserrat);
-      body, table, td, a{-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
-      table, td{mso-table-lspace: 0pt; mso-table-rspace: 0pt;}
-      img{border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;}
-      table{border-collapse: collapse !important;}
-      body{font-family: Arial, sans-serif; height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important;}
-      div[style*="margin: 16px 0;"] { margin:0 !important; }
-      a[x-apple-data-detectors] {
-      color: inherit !important;
-      text-decoration: none !important;
-      font-size: inherit !important;
-      font-family: inherit !important;
-      font-weight: inherit !important;
-      line-height: inherit !important;
-      }  
-      @media only screen and (max-width: 639px){
-	  .guest-name { text-align:center }
-      *[class].wrapper { width:100% !important; }
-      *[class].container { width:100% !important; }
-      *[class].mobile { width:100% !important; display:block !important; }
-      *[class].image{ width:100% !important; height:auto; }
-      *[class].center{ margin:0 auto !important; text-align:center !important; }
-      *[class="mobileOff"] { width: 0px !important; display: none !important; }
-      *[class*="mobileOn"] { display: block !important; max-height:none !important; }            
-      }
-    </style>
-
-    <!--[if mso]>
-    <style type="text/css">
-      .body-text {
-      font-family: Arial, sans-serif !important;
-      }
-    </style>
-    <![endif]-->
-
-    <!--[if gte mso 9]>
-    <xml>
-      <o:OfficeDocumentSettings>
-        <o:AllowPNG/>
-        <o:PixelsPerInch>96</o:PixelsPerInch>
-      </o:OfficeDocumentSettings>
-    </xml>
-    <![endif]--> 
 
   </head>
-  <body style="margin:0; padding:0;">
-    <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff">
-      <tr>
-        <td width="100%" valign="top" align="center">
+  <body style="margin:0; padding:0;" ng-app="contentBlocks" ng-controller="blocksController as blocks">
+    <!-- Menu -->
+      <ul id="menu">
+        <li ng-repeat="block in blocks.items" ng-click"blocks.viewBlock(block.id)"><a href="#" class="{{block.id}}">{{block.id}} - {{block.name}}</a></li>
+      </ul>
+    <!-- End Menu -->
+    <div class="container" >
+          
 
-          <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-            Insert preheader text here.
+
+          <!-- New Render Method -->
+          <div class="visibleBlock">
+
+            <h3>{{blocks.items[0].id}} - {{blocks.items[0].name}}</h3>  
+
+            <div class="block-code">
+            </div>
+
           </div>
-		  
-          
-          <!-- Menu -->
-          <ul id="menu">
-            
-          </ul>
+          <!-- End New Render Method -->
 
-
-          <!-- End Menu -->
 
           
-          
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>P01 - PREHEADER NO LOGO</h3>  
-          <!-- END BLOCK TITLE -->
-
-          <!-- 1 - HEADER -->
-          <table width="640" height="40" cellpadding="0" cellspacing="0" border="0" align="center"  class="wrapper" bgcolor="#D1D3D4">
+          <div class="block" id="P01">
+            <table width="640" height="40" cellpadding="0" cellspacing="0" border="0" align="center"  class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td align="center" valign="top">
                
@@ -129,15 +82,9 @@
               </td>
             </tr>
           </table>
-          <!-- END BLOCK 1 - HEADER --> 
-          </div>
-          
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>P02 - PREHEADER ONE LOGO</h3>
-          <!-- END BLOCK TITLE -->
+        </div>
 
-          <!-- 1 - HEADER -->
+        <div class="block" id="P02">
           <table width="640" height="40" cellpadding="0" cellspacing="0" border="0" align="center"  class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td align="center" valign="top">
@@ -180,15 +127,9 @@
               </td>
             </tr>
           </table>
-          <!-- END BLOCK 1 - HEADER --> 
-          </div>
-          
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>P03 - PREHEADER TWO LOGOS</h3> 
-          <!-- END BLOCK TITLE -->
-
-          <!-- 1 - HEADER -->
+        </div>
+         
+         <div class="block" id="P03">
           <table width="640" height="100" cellpadding="0" cellspacing="0" border="0" align="center"  class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td align="center" valign="top">
@@ -266,19 +207,11 @@
               </td>
             </tr>
           </table>
-          <!-- END BLOCK 1 - HEADER -->
           </div>
           
           
           
-		      <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>P04 - COMBO WITH BACKGROUND IMAGE</h3> 
-          <form><input id="image-upload" type="file" src="" /></form>
-
-          <!-- END BLOCK TITLE -->
-
-          <!-- 1 - HEADER -->
+		      <div class="block" id="P04">
           <table width="640" height="442" cellpadding="0" cellspacing="0" border="0" align="center" background="images/email-hero.jpg" style="background-image: url(images/email-hero.jpg);" class="wrapper" bgcolor="#30302F">
             <tr>
               <td align="center" valign="top">
@@ -406,15 +339,9 @@ Lorem ipsum dolor sit amet, 150 CHARACTERS elit. Sed sit amet nulla quis risus p
               <td height="10" style="font-size:10px; line-height:10px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 1 - HEADER --> 
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>H01 - HEADLINE ALIGNED TOP</h3>  
-          <!-- END BLOCK TITLE -->
-
-          <!-- 1 - HEADER -->
+          <div class="block" id="H01">
           <table width="640" height="442" cellpadding="0" cellspacing="0" border="0" align="center" background="images/email-hero.jpg" style="background-image: url(images/email-hero.jpg);" class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td align="center" valign="top">
@@ -505,15 +432,9 @@ Lorem ipsum dolor sit amet, 150 CHARACTERS elit. Sed sit amet nulla quis risus p
               <td height="10" style="font-size:10px; line-height:10px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 1 - HEADER --> 
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>H02 - HEADLINE ALIGNED MIDDLE</h3> 
-          <!-- END BLOCK TITLE -->
-
-          <!-- 1 - HEADER -->
+          <div class="block" id="H02">
           <table width="640" height="442" cellpadding="0" cellspacing="0" border="0" align="center" background="images/email-hero.jpg" style="background-image: url(images/email-hero.jpg);" class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td align="center" valign="top">
@@ -604,15 +525,9 @@ Lorem ipsum dolor sit amet, 150 CHARACTERS elit. Sed sit amet nulla quis risus p
               <td height="10" style="font-size:10px; line-height:10px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 1 - HEADER -->
           </div>
-          
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>H03 - HEADLINE ALIGNED BOTTOM</h3> 
-          <!-- END BLOCK TITLE -->
 
-          <!-- 1 - HEADER -->
+          <div class="block" id="H03">
           <table width="640" height="442" cellpadding="0" cellspacing="0" border="0" align="center" background="images/email-hero.jpg" style="background-image: url(images/email-hero.jpg);" class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td align="center" valign="top">
@@ -704,15 +619,9 @@ VIEW ACCOUNT 25 CHAR ACCO</a>
               <td height="10" style="font-size:10px; line-height:10px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 1 - HEADER -->
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M01 - LETTER</h3>  
-          <!-- END BLOCK TITLE -->
-
-          <!-- 2 - LETTER -->
+          <div class="block" id="M01">
           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#FFFFFF">
             <tr>
               <td height="40" style="font-size:40px; line-height:40px;">&nbsp;</td>
@@ -784,18 +693,9 @@ VIEW ACCOUNT 25 CHAR ACCO</a>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 2 - LETTER -->
           </div>
-          
-         
-          
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M02 - LARGE IMAGE</h3> 
-          <form><input id="m02-image-upload" type="file" src="" /></form>
-          <!-- END BLOCK TITLE -->
-          
-          <!-- 4 - LARGE PROMOTIONS -->
+                    
+          <div class="block" id="M02">
           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
@@ -933,15 +833,9 @@ READ MORE 25 CHAR MORE RE</a>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 4 - LARGE PROMOTIONS -->
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M03 - MEDIUM IMAGES LEFT ALIGNED</h3>  
-          <!-- END BLOCK TITLE -->
-          
-          <!-- 5 - SECONDARY PROMOTIONS -->
+         <div class="block" id="M03">
           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
@@ -1063,15 +957,9 @@ READ MORE 25 CHAR MORE RE</a>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 5 - SECONDARY PROMOTIONS -->
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M03 - MEDIUM IMAGES STAGGERED</h3>
-          <!-- END BLOCK TITLE -->
-          
-          <!-- 5 - SECONDARY PROMOTIONS -->
+          <div class="block" id="M04">
           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
@@ -1204,17 +1092,10 @@ READ MORE 25 CHAR MORE RE</a>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 5 - SECONDARY PROMOTIONS -->
           </div>
           
            
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M04 - SMALL IMAGE FULL WIDTH BOXES</h3> 
-          <!-- END BLOCK TITLE -->
-          
-          
-		      <!-- START UPDATE 1 -->
+          <div class="block" id="M05">
                 <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#D1D3D4">
                     <tr>
                         <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
@@ -1351,12 +1232,7 @@ READ MORE 25 CHAR MORE RE</a>
                 <!-- END UPDATE 3 -->
                 </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M05 - SMALL IMAGE HALF WIDTH BOXES</h3> 
-          <!-- END BLOCK TITLE -->
-          
-          <!-- 6 - TERTIARY PROMOTIONS -->
+          <div class="block" id="M06">
           <table width="640" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td height="10" style="font-size:10px; line-height:10px;">&nbsp;</td>
@@ -1660,15 +1536,9 @@ Read More 18 CHAR Re</a>
               <td height="10" style="font-size:10px; line-height:10px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 6 - TERTIARY PROMOTIONS -->
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M05 - SMALL IMAGE CTA</h3>
-          <!-- END BLOCK TITLE -->
-          
-          <!-- 7 - QUATERNARY PROMOTIONS -->
+         <div class="block" id="M07">
           <table width="640" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#FFFFFF">
             <tr>
               <td height="40" style="font-size:40px; line-height:40px;">&nbsp;</td>
@@ -1783,15 +1653,9 @@ Read More 18 CHAR Re</a>
               <td height="40" style="font-size:40px; line-height:40px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 7 - QUATERNARY PROMOTIONS -->
           </div>
           
-           <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M06 - ICONS WITH DESCRIPTIONS</h3> 
-          <!-- END BLOCK TITLE -->
-          
-          <!-- 3 - FEATURES -->
+           <div class="block" id="M08">
           <table width="640" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#292828">
             <tr>
               <td height="40" style="font-size:40px; line-height:40px;"> </td>
@@ -1914,15 +1778,9 @@ Read More 18 CHAR Re</a>
               <td height="40" style="font-size:40px; line-height:40px;"> </td>
             </tr>
           </table>
-          <!-- END BLOCK 3 - FEATURES -->
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M07 - CTA WITH DESCRIPTION</h3>
-          <!-- END BLOCK TITLE -->
-
-          <!-- 9 - CTA -->
+          <div class="block" id="M09">
           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#26a4d3">
             <tr>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
@@ -1967,15 +1825,9 @@ Read More 18 CHAR Re</a>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 9 - CTA --> 
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>M08 - STANDALONE BUTTON</h3>
-          <!-- END BLOCK TITLE -->
-
-          <!-- 8 - STANDALONE BUTTON -->
+          <div class="block" id="M10">
           <table width="640" cellpadding="0" cellspacing="0" border="0" class="wrapper" bgcolor="#D1D3D4">
             <tr>
               <td height="40" style="font-size:40px; line-height:40px;">&nbsp;</td>
@@ -2005,16 +1857,10 @@ Read More 18 CHAR Re</a>
               <td height="40" style="font-size:40px; line-height:40px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 8 - STANDALONE BUTTON -->
           </div>
                    
 
-		      <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>S01 - SOCIAL</h3> 
-          <!-- END BLOCK TITLE -->
-
-          <!-- 10 - SOCIAL -->
+		      <div class="block" id="S01">
           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#292828">
             <tr>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
@@ -2049,15 +1895,9 @@ Read More 18 CHAR Re</a>
               <td height="40" style="font-size: 40px; line-height: 40px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 10 - SOCIAL -->
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>D01 - DISCLAIMER</h3>
-          <!-- END BLOCK TITLE -->
-
-          <!-- 11 - FOOTER -->
+          <div class="block" id="D01">
           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#FFFFFF">
             <tr>
               <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
@@ -2078,15 +1918,9 @@ Read More 18 CHAR Re</a>
               <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 11 - FOOTER -->
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>U01 - UNSUBSCRIBE</h3>
-          <!-- END BLOCK TITLE -->
-
-          <!-- 11 - FOOTER -->
+          <div class="block" id="U01">
           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#FFFFFF">
             <tr>
               <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
@@ -2121,15 +1955,9 @@ This message was intended for Ricardo Perez, ASL 999999156, ricardo.perez@pnkmai
               <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 11 - FOOTER -->
           </div>
           
-          <!-- TITLE -->
-          <div class="contentBlock">
-          <h3>C01 - COPYRIGHT</h3>
-          <!-- END BLOCK TITLE -->
-          
-          <!-- 12 - COPYRIGHT -->
+          <div class="block" id="C01">
           <table width="640" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" style="border-top:1px solid #26a4d3;" bgcolor="#FFFFFF">
             <tr>
               <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
@@ -2149,18 +1977,10 @@ This message was intended for Ricardo Perez, ASL 999999156, ricardo.perez@pnkmai
               <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
             </tr>
           </table>
-          <!-- END BLOCK 12 - COPYRIGHT --> 
           </div>
 
          
-        </td>
-      </tr>
-    </table>
-    <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;">
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    </div>
+        </div>
   </body>
 </html>
 
