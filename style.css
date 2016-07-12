@@ -1,7 +1,7 @@
 div.contentBlock { 
-
+	max-width: 640px;
 	display: none;
-	
+	border-right: solid 1px #999; border-left: solid 1px #999;
 }
 div.contentBlock > h3 {
 	font-family: Arial, sans-serif;
@@ -17,8 +17,8 @@ div.contentBlock > h3 {
 	margin:0;
 }
 
-#menu {
-	width:230px;
+#menu-container {
+	width:240px;
 	float:left;
 	text-align:left;
 	position:absolute;
@@ -26,15 +26,34 @@ div.contentBlock > h3 {
 	font-size:13px;	
 }
 
-#menu > li {
-	margin:5px 0;
-	text-transform:capitalize;
-	
+.menu {
+	background-color: #ffffff;
+	padding-left:0;
 }
 
-#menu > li.active {
+.menu a {
+	color: #000;
+	text-decoration: none;
+}
+
+.menu > li {
+	margin: 0;
+	text-transform:capitalize;
+	padding:5px;
+	list-style-type: none;
+	border:solid 1px #999;
+}
+
+.menu > li:hover {
+	background-color: #5cc6ed;
+	color:#ffffff;
+	border:solid 1px #fff;
+}
+
+.menu > li.active {
 	background-color: #26a4d3;
 	color:#ffffff;
+	border:solid 1px #fff;
 }
 
 .body-text, .mobile {
@@ -42,7 +61,7 @@ div.contentBlock > h3 {
 }
 
 @media (max-width: 1100px) {
-	#menu {
+	.menu {
 		display: none;
 
 	}
@@ -51,8 +70,3 @@ div.contentBlock > h3 {
 	}
 
 }
-
-#M02 img {
-	width:600px;
-	height:207px;
-} 

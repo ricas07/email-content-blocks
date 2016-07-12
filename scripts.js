@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 	//builds menu
 	var contentBlocks = $('.contentBlock');
-	var menu = $('#menu');
+	var menu = $('#blocks');
 	
 	for (var i = 0 ; i < contentBlocks.length ; i++) {
 		//console.log(contentBlocks[i]);	
@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 	//toggle content blocks
 
-	$('#menu li').click(function() {
+	$('#blocks li').click(function() {
 		
 		var itemId = $(this).text().toUpperCase().substring(0,3);
 		console.log(itemId);
@@ -38,11 +38,38 @@ $(document).ready(function(){
 	});
 		
 	//show block for testing image upload
-	var defaultBlocks = [3,8,17,18,19,20];
-	var menuItems = $('#menu li');
-	for (i = 0; i < defaultBlocks.length ; i++) {
-		menuItems[defaultBlocks[i]].click();
+	
+	var template = getQuerystring("template");
+	console.log(template);
+	var activeBlocks;
+
+	if (template) {
+		if (template == "bonus") {
+		activeBlocks = [1,5,7];
+		}
+		else if (template == "promotion") {
+			activeBlocks = [1,8];
+		}
+		else if (template == "newsletter") {
+			activeBlocks = [1,5,8,10,16];
+		}
+		else if (template == "otp") {
+			activeBlocks = [1,8,10,13,14,15];
+		}
+		else if (template == "letter") {
+			activeBlocks = [1,7];
+		}
+		
+		activeBlocks.push(17,18,19,20);
+	} 
+	
+
+	var menuItems = $('#blocks li');
+	for (i = 0; i < activeBlocks.length ; i++) {
+		menuItems[activeBlocks[i]].click();
 	}
+
+
 	
 	//grab path of selected image
 
@@ -70,5 +97,22 @@ $(document).ready(function(){
 	
 	})
 
+	$('#menu-container input').click(function(){
+		console.log('CLICK!');
+		$('.menu').toggle();	
+	});
+
+	
+
 });
 
+function getQuerystring(key) {
+    key = String(key).toLowerCase();
+    key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regex = new RegExp("[\\?&]" + key + "=([^&#]*)");
+    var qs = regex.exec(String(document.location).toLowerCase());
+    if (qs == null)
+        return "";
+    else
+        return qs[1];
+}
