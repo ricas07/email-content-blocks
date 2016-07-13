@@ -41,25 +41,29 @@ $(document).ready(function(){
 	
 	var template = getQuerystring("template");
 	console.log(template);
-	var activeBlocks;
+	var activeBlocks = [];
 
 	if (template) {
 		if (template == "bonus") {
 		activeBlocks = [1,5,7];
+		
 		}
 		else if (template == "promotion") {
 			activeBlocks = [1,8];
+		
 		}
 		else if (template == "newsletter") {
 			activeBlocks = [1,5,8,10,16];
+		
 		}
 		else if (template == "otp") {
 			activeBlocks = [1,8,10,13,14,15];
+		
 		}
-		else if (template == "letter") {
+		else if (template == "special") {
 			activeBlocks = [1,7];
 		}
-		
+		$('#templates a[href*="'+template+'"]').parent().addClass('active');
 		activeBlocks.push(17,18,19,20);
 	} 
 	
@@ -98,8 +102,7 @@ $(document).ready(function(){
 	})
 
 	$('#menu-container input').click(function(){
-		console.log('CLICK!');
-		$('.menu').toggle();	
+		$('.menu, #menu-container h2, #menu-container > a').toggle();	
 	});
 
 	
