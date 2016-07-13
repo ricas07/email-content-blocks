@@ -80,6 +80,7 @@ div.contentBlock > h3 {
 
 /* End Base Styles */
 
+/* Start Ameristar */
 .ameristar .contentBlock table, 
 .ameristar .contentBlock table td, 
 .ameristar .contentBlock table h1, 
@@ -87,6 +88,36 @@ div.contentBlock > h3 {
 .ameristar .contentBlock table h3,
 .ameristar .contentBlock table p, 
 .ameristar .contentBlock table a {
-	color:red !important;
+	color: #ffffff !important;
+}
+.ameristar div.contentBlock > h3 { 	background-color:#ffffff;	color:#d00000; }
+.ameristar .contentBlock table, .ameristar .contentBlock table td {
+	background-color: #B22024;
+}
+.ameristar .contentBlock table a[href="https://litmus.com"] {
+	background-color: #ffffff;
+	color:#B22024 !important;
+	border:none !important;	
+}
 
+/* End Ameristar */
+
+/* Start Boomtown */
+.boomtown .contentBlock table, 
+.boomtown .contentBlock table td, 
+.boomtown .contentBlock table h1, 
+.boomtown .contentBlock table h2, 
+.boomtown .contentBlock table h3,
+.boomtown .contentBlock table p, 
+.boomtown .contentBlock table a {
+	color: #ffffff !important;
+}
+.boomtown div.contentBlock > h3 { 	background-color:#ffffff;	color:#d00000; }
+.boomtown .contentBlock table, .boomtown .contentBlock table td {
+	background-color: #000000;
+}
+.boomtown .contentBlock table a[href="https://litmus.com"] {
+	background-color: #ffffff;
+	color:#000000 !important;
+	border:none !important;	
 }

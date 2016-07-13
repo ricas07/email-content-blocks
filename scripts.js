@@ -95,6 +95,10 @@ $(document).ready(function(){
 			console.log("Quad");
 			$('body').addClass("ameristar");
 		break;
+		case "boomtown":
+			console.log("BOOM!");
+			$('body').addClass("boomtown");
+		break;
 
 	}
 
