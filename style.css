@@ -80,7 +80,13 @@ div.contentBlock > h3 {
 
 /* End Base Styles */
 
-.ameristar {
+.ameristar .contentBlock table, 
+.ameristar .contentBlock table td, 
+.ameristar .contentBlock table h1, 
+.ameristar .contentBlock table h2, 
+.ameristar .contentBlock table h3,
+.ameristar .contentBlock table p, 
+.ameristar .contentBlock table a {
+	color:red !important;
 
-	
 }

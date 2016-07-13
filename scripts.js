@@ -30,49 +30,73 @@ $(document).ready(function(){
 	$('#blocks li').click(function() {
 		
 		var itemId = $(this).text().toUpperCase().substring(0,3);
-		console.log(itemId);
+		//console.log(itemId);
 
 		$('#'+itemId).toggle();
 		$(this).toggleClass('active');
 
 	});
 		
-	//show block for testing image upload
-	
-	var template = getQuerystring("template");
-	console.log(template);
+	//set template blocks
+	var menuItems = $('#blocks li');
+	var template = getQuerystring("template");	
 	var activeBlocks = [];
 
 	if (template) {
-		if (template == "bonus") {
-		activeBlocks = [1,5,7];
-		
-		}
-		else if (template == "promotion") {
-			activeBlocks = [1,8];
-		
-		}
-		else if (template == "newsletter") {
-			activeBlocks = [1,5,8,10,16];
-		
-		}
-		else if (template == "otp") {
-			activeBlocks = [1,8,10,13,14,15];
-		
-		}
-		else if (template == "special") {
-			activeBlocks = [1,7];
-		}
-		$('#templates a[href*="'+template+'"]').parent().addClass('active');
-		activeBlocks.push(17,18,19,20);
-	} 
-	
 
-	var menuItems = $('#blocks li');
-	for (i = 0; i < activeBlocks.length ; i++) {
-		menuItems[activeBlocks[i]].click();
+		switch (template) {
+			case "bonus":
+				activeBlocks = [1,5,7];		
+			break;
+			case "promotion":
+				activeBlocks = [1,8];			
+			break;
+			case "newsletter":
+				activeBlocks = [1,5,8,10,16];			
+			break;
+			case "otp":
+				activeBlocks = [1,8,10,13,14,15];			
+			break;
+			case "special":
+				activeBlocks = [1,7];
+			break;
+
+			default:
+				activeBlocks;
+
+		}
+
+		if (activeBlocks != '') {
+			$('#templates a[href*="'+template+'"]').parent().addClass('active');
+			activeBlocks.push(17,18,19,20);
+
+			
+			for (i = 0; i < activeBlocks.length ; i++) {
+				menuItems[activeBlocks[i]].click();
+			}
+		}
+
+	} else {
+		for (i = 0; i < menuItems.length ; i++) {
+			$(menuItems[i]).click();
+			//menuItems[i].click();
+		}
 	}
 
+	
+
+	
+	//set brand
+
+	var brand = getQuerystring("brand");
+
+	switch (brand) {
+		case "ameristar":
+			console.log("Quad");
+			$('body').addClass("ameristar");
+		break;
+
+	}
 
 	
 	//grab path of selected image
