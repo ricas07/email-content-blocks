@@ -5,36 +5,24 @@ $(document).ready(function(){
 	// Makes Content Editable
 	$('.body-text, .mobile').attr("contenteditable","true");
 
-	//displays hidden blocks
-	//$('.contentBlock').show();
-
 	//builds menu
 	var contentBlocks = $('.contentBlock');
 	var menu = $('#blocks');
 	
 	for (var i = 0 ; i < contentBlocks.length ; i++) {
 		//console.log(contentBlocks[i]);	
-
 		var blockTitle = $(contentBlocks[i]).find('h3').first().text();
-
 		var blockClass = blockTitle.substring(0,3);
-
 		$(contentBlocks[i]).attr('id', blockClass);
-
 		menu.append('<li>' + blockTitle.toLowerCase() + '</li>');
-
 	}
 
 	//toggle content blocks
 
 	$('#blocks li').click(function() {
-		
 		var itemId = $(this).text().toUpperCase().substring(0,3);
-		//console.log(itemId);
-
 		$('#'+itemId).toggle();
 		$(this).toggleClass('active');
-
 	});
 		
 	//set template blocks
@@ -67,7 +55,7 @@ $(document).ready(function(){
 		}
 
 		if (activeBlocks != '') {
-			$('#templates a[href*="'+template+'"]').parent().addClass('active');
+			$('#'+template).addClass('active');
 			activeBlocks.push(17,18,19,20);
 
 			
@@ -82,26 +70,15 @@ $(document).ready(function(){
 			//menuItems[i].click();
 		}
 	}
-
-	
-
 	
 	//set brand
 
 	var brand = getQuerystring("brand");
 
-	switch (brand) {
-		case "ameristar":
-			console.log("Quad");
-			$('body').addClass("ameristar");
-		break;
-		case "boomtown":
-			console.log("BOOM!");
-			$('body').addClass("boomtown");
-		break;
-
+	if (brand) {
+		$('body').addClass(brand);
+		$('#'+brand).addClass('active');
 	}
-
 	
 	//grab path of selected image
 
@@ -132,10 +109,23 @@ $(document).ready(function(){
 	$('#menu-container input').click(function(){
 		$('.menu, #menu-container h2, #menu-container > a').toggle();	
 	});
-
 	
+	
+	var newTemplate;
+
+	$('#templates li').click(function(){
+		newTemplate = setTemplate($(this).attr('id'),brand);
+		window.location = newTemplate;
+	});
+
+	$('#brands li').click(function(){
+		newTemplate = setTemplate(template,$(this).attr('id'));
+		window.location = newTemplate;
+	});
 
 });
+
+
 
 function getQuerystring(key) {
     key = String(key).toLowerCase();
@@ -146,4 +136,12 @@ function getQuerystring(key) {
         return "";
     else
         return qs[1];
+}
+
+function setTemplate(name, brand){
+	var pageUrl = '?template=' + name;
+	if (brand != '') {
+		pageUrl += '&brand=' + brand;
+	}
+	return pageUrl;
 }
