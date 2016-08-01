@@ -19,6 +19,8 @@ div.contentBlock > h3 {
 	margin:0;
 }
 
+#brands li {text-transform: none} /* don't capitalize mychoie */
+
 #menu-container {
 	background-color: #ffffff;
 	width:240px;
@@ -99,6 +101,11 @@ div.contentBlock > h3 {
 	color:#B22024 !important;
 	border:none !important;	
 }
+
+.ameristar .P01 table td,
+.ameristar .P02 table td,
+.ameristar .P03 table td
+ {background-color: #000000 !important;}
 
 /* End Ameristar */
 

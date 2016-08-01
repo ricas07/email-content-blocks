@@ -106,8 +106,12 @@ $(document).ready(function(){
 	
 	})
 
-	$('#menu-container input').click(function(){
+	$('#display-menus').click(function(){
 		$('.menu, #menu-container h2, #menu-container > a').toggle();	
+	});
+
+	$('#display-titles').click(function(){
+		$('.contentBlock h3').toggle();	
 	});
 	
 	
