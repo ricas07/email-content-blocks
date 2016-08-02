@@ -81,8 +81,8 @@ $(document).ready(function(){
 	}
 	
 	//grab path of selected image
-
-	$('#image-upload').change( function(event) {
+	//THESE NEED TO FIXED
+	$('.M02 .image-upload').change( function(event) {
 	    var tmppath = URL.createObjectURL(event.target.files[0]);
 	    
 	    console.log(tmppath);
@@ -94,7 +94,7 @@ $(document).ready(function(){
 	})
 
 
-	$('#m02-image-upload').change( function(event) {
+	$('.P04 .image-upload').change( function(event) {
 	    var tmppath = URL.createObjectURL(event.target.files[0]);
 	    
 	    console.log(tmppath);
@@ -112,6 +112,7 @@ $(document).ready(function(){
 
 	$('#display-titles').click(function(){
 		$('.contentBlock h3').toggle();	
+		$('.image-upload').toggle();
 	});
 	
 	

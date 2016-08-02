@@ -23,12 +23,14 @@ div.contentBlock > h3 {
 
 #menu-container {
 	background-color: #ffffff;
-	width:240px;
+	min-width:240px;
+	max-height: 100%;
 	float:left;
 	text-align:left;
 	position:fixed;
 	font-family: Arial, sans-serif;
 	font-size:13px;	
+	overflow: scroll;
 }
 
 .menu {
@@ -70,8 +72,11 @@ div.contentBlock > h3 {
 }
 
 @media (max-width: 1100px) {
+	#menu-container {
+		overflow: hidden;
+	}
 	.menu, #menu-container h2, #menu-container > a {
-		display: none;
+		display: none; 
 
 	}
 	form { 
@@ -82,7 +87,24 @@ div.contentBlock > h3 {
 
 /* End Base Styles */
 
+/* 
+
+Need custom stiles for:
+Table background colors
+Headline Copy Color
+Subjead Copy Color
+Body Copy
+Button color
+Button copy color
+Link copy color
+Section Border color
+
+
+*/
+
 /* Start Ameristar */
+
+/*Standard body copy color*/
 .ameristar .contentBlock table, 
 .ameristar .contentBlock table td, 
 .ameristar .contentBlock table h1, 
@@ -92,20 +114,53 @@ div.contentBlock > h3 {
 .ameristar .contentBlock table a {
 	color: #ffffff !important;
 }
+
+/*content block title styles */
 .ameristar div.contentBlock > h3 { 	background-color:#ffffff;	color:#d00000; }
+
+
+/*First Background Color*/
 .ameristar .contentBlock table, .ameristar .contentBlock table td {
 	background-color: #B22024;
 }
+
+/*Secondary Background Color*/
+.ameristar .contentBlock table.second,
+.ameristar .contentBlock table.second table,
+.ameristar .contentBlock table.second td {
+	background-color: #CD272D !important;
+}
+
+/*Button Styles*/
 .ameristar .contentBlock table a[href="https://litmus.com"] {
 	background-color: #ffffff;
 	color:#B22024 !important;
 	border:none !important;	
 }
 
+/*P0# Header background color */
 .ameristar .P01 table td,
 .ameristar .P02 table td,
-.ameristar .P03 table td
- {background-color: #000000 !important;}
+.ameristar .P03 table td {
+	background-color: #000000 !important;
+}
+
+ /*Border color*/
+ .ameristar .contentBlock table {
+ 	border-color:#E18530 !important;
+ }
+
+ /* CTA Background color */
+.ameristar table.M09,
+.ameristar .M09 table,
+.ameristar .M09 td,
+.ameristar table.M10,
+.ameristar .M10 table,
+.ameristar .M10 td  {
+	background-color: #343434 !important;
+}
+ 
+
 
 /* End Ameristar */
 
