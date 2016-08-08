@@ -64,6 +64,9 @@ $(document).ready(function(){
 			}
 		}
 
+		$('.contentBlock h3').toggle();	
+		$('.image-upload').toggle();
+
 	} else {
 		for (i = 0; i < menuItems.length ; i++) {
 			$(menuItems[i]).click();
